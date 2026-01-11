@@ -1,12 +1,12 @@
-# 📚 Projet Microservices - Gestion de Bibliothèque avec Kafka
+# Projet Microservices - Gestion de Bibliothèque avec Kafka
 
-## 📖 Description du Projet
+## Description du Projet
 
 Application de gestion de bibliothèque utilisant une architecture microservices avec communication asynchrone via Kafka.
 
 ---
 
-## 🎯 Objectifs Réalisés
+## Objectifs Réalisés
 
 Ce projet étend une architecture microservices existante en ajoutant :
 
@@ -17,7 +17,7 @@ Ce projet étend une architecture microservices existante en ajoutant :
 
 ---
 
-## 🏗️ Architecture du Projet
+##  Architecture du Projet
 
 ### Services de Base (Architecture conservée)
 
@@ -54,46 +54,6 @@ Ce projet étend une architecture microservices existante en ajoutant :
 - **Zookeeper (Port 2181)** - Coordination pour Kafka
 - **Kafka (Port 9092)** - Message Broker pour la communication asynchrone
 - **MySQL** - 4 instances sur les ports 3307, 3308, 3309, 3310
-
----
-
-## 📊 Schéma d'Architecture
-```
-                    ┌─────────────────────┐
-                    │   EUREKA SERVER     │
-                    │   (Port 8761)       │
-                    └──────────┬──────────┘
-                               │
-                    ┌──────────┴──────────┐
-                    │     GATEWAY         │
-                    │    (Port 9999)      │
-                    └──────────┬──────────┘
-                               │
-         ┌─────────────────────┼─────────────────────┐
-         │                     │                     │
-    ┌────▼────┐           ┌───▼────┐          ┌────▼────────┐
-    │  USER   │           │  BOOK  │          │  EMPRUNTER  │
-    │ :8082   │           │ :8081  │          │   :8083     │
-    └────┬────┘           └───┬────┘          └────┬────────┘
-         │                    │                     │
-         │                    │                     │ Kafka Producer
-    ┌────▼────┐          ┌───▼────┐          ┌────▼────────┐
-    │ MySQL   │          │ MySQL  │          │   KAFKA     │
-    │ userdb  │          │bookdb  │          │   :9092     │
-    │ :3307   │          │ :3308  │          └────┬────────┘
-    └─────────┘          └────────┘               │
-                                                   │ Kafka Consumer
-                                             ┌─────▼─────────┐
-                                             │ NOTIFICATION  │
-                                             │    :8084      │
-                                             └─────┬─────────┘
-                                                   │
-                                             ┌─────▼─────────┐
-                                             │    MySQL      │
-                                             │ notificationdb│
-                                             │    :3310      │
-                                             └───────────────┘
-```
 
 ---
 
@@ -179,25 +139,7 @@ Découpler la logique métier de la logique de notification. Quand un emprunt es
 **Producteur** : emprunter-service  
 **Consommateur** : notification-service
 
-### Format du Message
-```json
-{
-  "empruntId": 1,
-  "userId": 3,
-  "bookId": 5,
-  "eventType": "EMPRUNT_CREATED",
-  "timestamp": "2025-01-01T14:00:00"
-}
-```
 
-**Description des champs** :
-- `empruntId` : Identifiant de l'emprunt créé
-- `userId` : Identifiant de l'utilisateur
-- `bookId` : Identifiant du livre emprunté
-- `eventType` : Type d'événement (EMPRUNT_CREATED)
-- `timestamp` : Date et heure de création
-
----
 
 ## 🚀 Déploiement via Docker Compose
 
@@ -244,8 +186,8 @@ POST http://localhost:8082/users
 Content-Type: application/json
 
 {
-  "name": "Alice",
-  "email": "alice@test.com"
+  "name": "noura",
+  "email": "noura@test.com"
 }
 ```
 
