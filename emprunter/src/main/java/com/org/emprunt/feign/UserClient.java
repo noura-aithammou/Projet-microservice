@@ -9,6 +9,6 @@ import com.org.emprunt.DTO.UserDTO;
 @FeignClient(name = "user-service")
 public interface UserClient {
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/api/users/{id}")
     UserDTO getUser(@PathVariable Long id);
 }
