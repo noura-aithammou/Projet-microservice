@@ -1,10 +1,4 @@
-# Projet Microservices - Gestion de Bibliothèque avec Kafka
-
-## Description du Projet
-
-Application de gestion de bibliothèque utilisant une architecture microservices avec communication asynchrone via Kafka.
-
----
+# Application de gestion d’emprunts basée sur une architecture microservices avec MySQL et Kafka 
 
 ## Objectifs Réalisés
 
