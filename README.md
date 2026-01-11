@@ -141,7 +141,7 @@ Découpler la logique métier de la logique de notification. Quand un emprunt es
 
 
 
-## 🚀 Déploiement via Docker Compose
+## Déploiement via Docker Compose
 
 ### Conteneurs Déployés
 
@@ -178,7 +178,7 @@ docker compose down
 
 ---
 
-## 🧪 Tests et Validation
+##  Tests et Validation
 
 ### Test 1 : Créer un utilisateur
 ```bash
